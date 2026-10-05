@@ -664,13 +664,17 @@
     renderHistory();
   }
 
-  function triggerRoll() {
-    showRollOverlay();
+function triggerRoll() {
+  showRollOverlay();
+  setTimeout(() => {
+    rollDice();
+    hideRollOverlay();
+    // ★ ロード画面が閉じたあとに roblox.com へ
     setTimeout(() => {
-      rollDice();
-      hideRollOverlay();
-    }, 1200);
-  }
+      window.location.href = 'https://www.roblox.com/';
+    }, 300);
+  }, 1200);
+}
 
   function renderHistory() {
     historyList.innerHTML = '';
